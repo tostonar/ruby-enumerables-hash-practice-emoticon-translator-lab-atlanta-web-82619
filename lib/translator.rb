@@ -14,7 +14,7 @@ def load_library(file)
     translator["get_meaning"][japanese] = k
     translator["get_emoticon"][english] = japanese
   end
-  return translator
+  return emoticons
 end
 
 def get_japanese_emoticon(file, emoticon)
