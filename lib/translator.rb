@@ -8,13 +8,13 @@ def load_library(file)
     "get_emoticon" => {}
   }
   emoticons = YAML.load_file(file)
-  emoticons.each do |k,v|
-    english = v[0]
-    japanese = v[1]
-    translator["get_meaning"][japanese] = k
+  emoticons.each do |meaning,icons|
+    english = icons[0]
+    japanese = icons[1]
+    translator["get_meaning"][japanese] = meaning
     translator["get_emoticon"][english] = japanese
   end
-  return emoticons
+  return translator
 end
 
 def get_japanese_emoticon(file, emoticon)
@@ -36,5 +36,3 @@ def get_english_meaning(file, emoticon)
     "Sorry, that emoticon was not found"
   end
 end
-
-puts load_library("./lib/emoticons.yml")
